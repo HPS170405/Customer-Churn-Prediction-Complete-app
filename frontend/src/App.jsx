@@ -4,7 +4,7 @@ import DashboardHome from './components/DashboardHome';
 import CustomerProfiler from './components/CustomerProfiler';
 import AICopilot from './components/AICopilot';
 import ModelStudio from './components/ModelStudio';
-import { BarChart3, Users, Sparkles, Cpu } from 'lucide-react';
+import { BarChart3, Users, Sparkles, Cpu, Github } from 'lucide-react';
 
 const BACKEND_URL = 'https://customer-churn-prediction-complete-app.onrender.com';
 
@@ -82,26 +82,46 @@ function App() {
           </button>
         </nav>
 
-        {/* API key configuration block */}
-        <div className="api-key-config">
-          <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Gemini API Key:</span>
-          <input
-            type="password"
-            className="api-key-input"
-            placeholder="AI Key (Optional)..."
-            value={apiKey}
-            onChange={handleApiKeyChange}
-            title="Optional. Provide a Google Gemini API Key to enable live generative AI summaries. If left blank, a highly descriptive local rule-based strategist will execute."
-          />
-          {apiKey ? (
-            <span className="brand-tag" style={{ border: '1px solid var(--success)', background: 'var(--success-glow)', color: 'var(--success)' }}>
-              Live RAG
-            </span>
-          ) : (
-            <span className="brand-tag" style={{ border: '1px solid var(--text-muted)', background: 'rgba(0,0,0,0.2)', color: 'var(--text-muted)' }}>
-              Fallback
-            </span>
-          )}
+        {/* API key configuration block & GitHub link */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div className="api-key-config">
+            <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Gemini API Key:</span>
+            <input
+              type="password"
+              className="api-key-input"
+              placeholder="AI Key (Optional)..."
+              value={apiKey}
+              onChange={handleApiKeyChange}
+              title="Optional. Provide a Google Gemini API Key to enable live generative AI summaries. If left blank, a highly descriptive local rule-based strategist will execute."
+            />
+            {apiKey ? (
+              <span className="brand-tag" style={{ border: '1px solid var(--success)', background: 'var(--success-glow)', color: 'var(--success)' }}>
+                Live RAG
+              </span>
+            ) : (
+              <span className="brand-tag" style={{ border: '1px solid var(--text-muted)', background: 'rgba(0,0,0,0.2)', color: 'var(--text-muted)' }}>
+                Fallback
+              </span>
+            )}
+          </div>
+          
+          <a
+            href="https://github.com/HPS170405/Customer-Churn-Prediction-Complete-app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-secondary"
+            style={{ 
+              padding: '0.45rem 0.75rem', 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '0.5rem', 
+              textDecoration: 'none',
+              fontSize: '0.85rem'
+            }}
+          >
+            <Github size={16} />
+            <span>Code Repo</span>
+          </a>
         </div>
       </header>
 
