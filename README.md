@@ -1,5 +1,8 @@
 # ChurnShield AI: Predictive Customer Churn Dashboard & AI Retention Co-Pilot
 
+🌐 **Live Demo**: [https://customer-churn-prediction-complete.vercel.app/](https://customer-churn-prediction-complete.vercel.app/)  
+⚡ **API Docs**: [https://customer-churn-prediction-complete-app.onrender.com/docs](https://customer-churn-prediction-complete-app.onrender.com/docs)
+
 **ChurnShield AI** is an end-to-end Machine Learning and Generative AI (RAG) customer retention application. Built for corporate customer success teams, this project transitions raw data insights into immediate retention actions, featuring a custom ML predictive pipeline, a "What-If" simulator, a Retrieval-Augmented Generation (RAG) assistant, and a live Model Tuning Studio.
 
 Designed specifically to demonstrate full-stack engineering, machine learning modeling, and generative AI integration for technology placement portfolios.
