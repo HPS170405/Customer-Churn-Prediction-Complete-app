@@ -6,7 +6,7 @@ import AICopilot from './components/AICopilot';
 import ModelStudio from './components/ModelStudio';
 import { BarChart3, Users, Sparkles, Cpu } from 'lucide-react';
 
-const BACKEND_URL = 'http://localhost:8000';
+const BACKEND_URL = 'https://customer-churn-prediction-complete-app.onrender.com';
 
 function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
