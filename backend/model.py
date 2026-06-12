@@ -135,10 +135,7 @@ def load_and_preprocess_data():
     download_data()
     df = pd.read_csv(DATA_PATH)
     
-    if df["TotalCharges"].dtype == object:
-        df["TotalCharges"] = df["TotalCharges"].str.strip().replace("", np.nan)
-    df["TotalCharges"] = pd.to_numeric(df["TotalCharges"])
-    df["TotalCharges"] = df["TotalCharges"].fillna(0)
+    df["TotalCharges"] = pd.to_numeric(df["TotalCharges"], errors="coerce").fillna(0)
     
     if "Churn" in df.columns:
         df["Churn"] = df["Churn"].map({"Yes": 1, "No": 0})
