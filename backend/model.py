@@ -140,15 +140,29 @@ def load_and_preprocess_data():
     if "Churn" in df.columns:
         df["Churn"] = df["Churn"].map({"Yes": 1, "No": 0})
         
+    df = add_engineered_features(df)
     return df
 
-NUMERIC_FEATURES = ["tenure", "MonthlyCharges", "TotalCharges"]
+NUMERIC_FEATURES = ["tenure", "MonthlyCharges", "TotalCharges", "TotalServices", "ChargesToTenureRatio"]
 CATEGORICAL_FEATURES = [
     "gender", "SeniorCitizen", "Partner", "Dependents", "PhoneService", 
     "MultipleLines", "InternetService", "OnlineSecurity", "OnlineBackup", 
     "DeviceProtection", "TechSupport", "StreamingTV", "StreamingMovies", 
     "Contract", "PaperlessBilling", "PaymentMethod"
 ]
+
+def add_engineered_features(df: pd.DataFrame) -> pd.DataFrame:
+    """Creates engineered features for churn prediction."""
+    df = df.copy()
+    
+    # 1. Total services count
+    services = ["OnlineSecurity", "OnlineBackup", "DeviceProtection", "TechSupport", "StreamingTV", "StreamingMovies"]
+    df["TotalServices"] = df[services].apply(lambda row: sum(row == "Yes"), axis=1)
+    
+    # 2. Charges to tenure ratio (unit cost)
+    df["ChargesToTenureRatio"] = df["MonthlyCharges"] / (df["tenure"] + 1)
+    
+    return df
 
 def build_pipeline(n_estimators=100, max_depth=10, model_type="random_forest", scale_pos_weight=1.0):
     """Creates the scikit-learn preprocessing and classifier pipeline (RF or XGBoost)."""
@@ -164,6 +178,9 @@ def build_pipeline(n_estimators=100, max_depth=10, model_type="random_forest", s
             n_estimators=n_estimators,
             max_depth=max_depth,
             scale_pos_weight=scale_pos_weight,
+            learning_rate=0.05,
+            subsample=0.8,
+            colsample_bytree=0.8,
             random_state=42,
             eval_metric="logloss"
         )
@@ -286,9 +303,13 @@ def predict_single(customer_data: dict):
     model = get_model()
     df_input = pd.DataFrame([customer_data])
     
-    for col in NUMERIC_FEATURES + CATEGORICAL_FEATURES:
+    # Raw features before engineering
+    raw_numeric = ["tenure", "MonthlyCharges", "TotalCharges"]
+    raw_categorical = CATEGORICAL_FEATURES
+    
+    for col in raw_numeric + raw_categorical:
         if col not in df_input.columns:
-            if col in NUMERIC_FEATURES:
+            if col in raw_numeric:
                 df_input[col] = 0
             else:
                 df_input[col] = "No"
@@ -296,6 +317,9 @@ def predict_single(customer_data: dict):
     df_input["tenure"] = pd.to_numeric(df_input["tenure"])
     df_input["MonthlyCharges"] = pd.to_numeric(df_input["MonthlyCharges"])
     df_input["TotalCharges"] = pd.to_numeric(df_input["TotalCharges"])
+    
+    # Apply engineering to get the full feature set
+    df_input = add_engineered_features(df_input)
     
     base_prob = float(model.predict_proba(df_input[NUMERIC_FEATURES + CATEGORICAL_FEATURES])[0, 1])
     
