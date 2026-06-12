@@ -1,0 +1,31 @@
+# Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.env
+
+# Model files & local caches
+backend/data/churn_model.joblib
+backend/data/model_metadata.json
+
+# Node/React files
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp

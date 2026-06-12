@@ -1,0 +1,72 @@
+[
+  {
+    "id": "contract_upgrade",
+    "name": "Contract Transition Incentive Playbook",
+    "trigger_condition": "Month-to-month contract type combined with tenure under 18 months.",
+    "risk_factors": ["Contract", "tenure"],
+    "description": "Transition the customer from a flexible Month-to-Month billing plan to a stable 1-Year or 2-Year contract by offering a pricing guarantee and bundled perks.",
+    "action_steps": [
+      "Contact customer via executive outreach program offering the 'Loyalty Price Shield'.",
+      "Offer a 15% discount on their current monthly charge if they sign a 12-month contract.",
+      "Waive any upcoming upgrade or activation fees for new features.",
+      "Bundle 3 months of premium Tech Support or Online Backup free of charge."
+    ],
+    "roi_impact": "Expected to decrease customer churn probability by 40-55% and secure monthly recurring revenue (MRR) for at least 12 months."
+  },
+  {
+    "id": "price_saver",
+    "name": "High Monthly Charges Adjustment Strategy",
+    "trigger_condition": "Monthly charges exceed $75 and customer has expressed price concerns or has high probability of churn.",
+    "risk_factors": ["MonthlyCharges"],
+    "description": "Audit the customer's active services to remove unused features and bundle essential services under a discounted loyalty rate.",
+    "action_steps": [
+      "Review customer's package usage. Identify streaming plans or extra lines that have low or zero utilization.",
+      "Propose the 'Value Pack Bundle' which consolidates their phone and internet services, dropping monthly bill by $15-$20 without removing core utilities.",
+      "Apply a credit of $50 to their next billing cycle as a good-will gesture.",
+      "Recommend switching from Electronic Check to Auto-pay (Credit Card/Bank Transfer) for an additional automatic $5 monthly credit."
+    ],
+    "roi_impact": "Decreases immediate churn risk, builds goodwill, and converts manual payment customers to frictionless auto-pay."
+  },
+  {
+    "id": "tech_intervention",
+    "name": "Fiber-Optic Support & Reliability Protocol",
+    "trigger_condition": "Fiber-optic internet type combined with lack of Tech Support subscription.",
+    "risk_factors": ["InternetService", "TechSupport"],
+    "description": "Fiber-optic networks have higher speeds but customers experience higher churn rates when they encounter setup/connection issues without standard tech support. This protocol automatically provisions premium support.",
+    "action_steps": [
+      "Flag account for a proactive technical health check of their local router/connection status.",
+      "Offer the 'Tech assurance bundle': free upgrade to premium Tech Support for 6 months (normally $8.00/month).",
+      "Send a complimentary router self-check guide and schedule a callback from a senior technician to ensure line stability.",
+      "Provide a priority support routing code so the customer bypasses standard queues if they call in the future."
+    ],
+    "roi_impact": "Reduces connection-based frustration which is the primary cause of churn among fiber-optic subscribers."
+  },
+  {
+    "id": "security_protection",
+    "name": "Digital Security & Safety Add-on Bundle",
+    "trigger_condition": "Customer has internet service but is missing OnlineSecurity, OnlineBackup, or DeviceProtection services.",
+    "risk_factors": ["OnlineSecurity", "OnlineBackup", "DeviceProtection"],
+    "description": "Customers who subscribe to security and protection features churn at a significantly lower rate (sticky products). Introduce these products as value-adds rather than upsells.",
+    "action_steps": [
+      "Educate customer on cyber threats and data loss risks, highlighting that their plan qualifies for discounted protection.",
+      "Offer the 'Peace of Mind' security suite (Online Security + Online Backup) free for the first 90 days, auto-renewing at a 50% discount ($4/month instead of $8).",
+      "Assist the customer in setting up their backup service during the call to increase activation rates.",
+      "Emphasize the digital identity protection features included in the package."
+    ],
+    "roi_impact": "Increases product stickiness, customer lifetime value, and adds low-marginal-cost value features."
+  },
+  {
+    "id": "autopay_incentive",
+    "name": "Auto-Pay and Paperless Transition Playbook",
+    "trigger_condition": "Customer pays via Electronic Check or Mailed Check and uses paper billing.",
+    "risk_factors": ["PaymentMethod", "PaperlessBilling"],
+    "description": "Electronic check and mailed check payments require manual monthly action from the customer, causing recurring price awareness and payment friction. Auto-pay and paperless billing create frictionless retention.",
+    "action_steps": [
+      "Send an email and SMS campaign detailing the 'Paperless Savings' incentive.",
+      "Offer a one-time billing credit of $25 if they enroll in both Bank Auto-pay and Paperless Billing.",
+      "Guide customer through setting up a preferred credit card or bank routing number via the self-service dashboard.",
+      "Highlight the environment-friendly aspect of paperless statement delivery."
+    ],
+    "roi_impact": "Reduces monthly invoice processing costs and eliminates recurring monthly payment friction, reducing transactional churn."
+  }
+]
